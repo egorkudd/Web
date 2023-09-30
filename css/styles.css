@@ -1,0 +1,314 @@
+/*================== Header ========================*/
+
+header {
+  height: 70px;
+}
+
+.user {
+  position: absolute;
+  top: 5px;
+  left: 50px;
+  background-color: white;
+  border-radius:5px;
+  padding:15px 30px;
+  font-size:18px;
+  font-weight: bold;
+}
+
+
+.user::before {
+  content: "Пользователь: ";
+  font-weight: normal;
+}
+
+.search-line {
+  position: absolute;
+  top: 5px;
+  right: 240px;
+}
+
+.search-line input {
+  height: 50px;
+  border:none;
+  border-radius:5px;
+  width: 300px;
+  padding: 10px 0 10px 10px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 5px;
+  right: 80px;
+  z-index: 9999;
+}
+
+button {
+  border:none;
+  border-radius:5px;
+  padding:15px 30px;
+  font-size:18px;
+  cursor:pointer;
+}
+
+button:hover{
+  background-color:#ccc;
+}
+
+.dropdown-options {
+  display: none;
+  position: absolute;
+  background-color:#fff;
+  border-radius:5px;
+  box-shadow: 0px 5px 10px;
+}
+
+.dropdown:hover .dropdown-options {
+  display: block;
+  overflow-y: scroll;
+  height:60vh;
+}
+
+.dropdown-options a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  padding:20px 40px;
+}
+
+.dropdown-options a:hover {
+  background-color: #ddd;
+  border-radius:5px;
+}
+
+/*==================== Body ===========================*/
+
+body {
+  background-image: url("images\\bg9.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.welcome-phrase {
+  width: 90%;
+  height: 80vh;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 15vh;
+  font-size: 100px;
+  font-weight: bold;
+  text-shadow: 3px 3px 4px #fff;
+}
+
+.card {
+  width: 225px;
+  min-height: 350px;
+  box-shadow: 1px 2px 7px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  transition: 0.2s;
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+}
+
+.card-top {
+  flex: 0 0 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: 0.2s;
+}
+
+.card-bottom {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  padding: 10px;
+}
+
+.book-info {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.book-genre {
+  font-weight: bold;
+  font-size: 19px;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book-genre::after {
+  content: "Жанр книги";
+  font-weight: normal;
+  font-size: 13px;
+  color: #888;
+}
+
+.auther-mark {
+  font-size: 17px;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.auther-mark::after {
+  content: "Оценка автора";
+  font-weight: normal;
+  font-size: 13px;
+  color: #888;
+}
+
+.book-name {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 150%;
+  color: black;
+}
+
+.book-name:hover {
+  color: orange;
+}
+
+.card-add {
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  font-size: 17px;
+  color: #70c05b;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #70c05b;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card-add:hover {
+  border: 1px solid #ff6633;
+  background-color: #ff6633;
+  color: #fff;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 225px);
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  width: 90%;
+  justify-content: center;
+  justify-items: center;
+  column-gap: 30px;
+  row-gap: 40px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.list-title {
+  font-size: 50px;
+  font-weight: bold;
+  font-family: monospace;
+  text-decoration: underline 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  margin: auto;
+}
+
+.white-bg {
+  width: 90%;
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.description-card {
+  display: flex;
+  flex-direction: row;
+}
+
+.desc-image {
+  width: 500px;
+/*  display: flex;*/
+/*  flex-wrap: wrap-reverse;*/
+}
+
+.desc-text {
+  font-size: 17px;
+  color: black;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-end;
+}
+
+/*============================== Footer ========================*/
+
+footer {
+/*  margin-top: 5px;*/
+}
+
+.footer-title {
+  margin-top: 5px;
+  padding: 0 0 0 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.markers {
+  padding: 0 0 10px 40px;
+  margin: 5px 0 0 15px;
+  font-size: 16px;
+  list-style: none;
+}
+
+#tg {
+  list-style-image: url(images\\tg.png);
+}
+
+#in {
+  list-style-image: url(images\\in.png);
+}
+
+#vk {
+  list-style-image: url(images\\vk.png);
+}
+
+#gm {
+  list-style-image: url(images\\gm.png);
+}
+
+.funny-place {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.funny-item {
+  padding: 15px;
+}
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="My Library">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Egor Kudryashov">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Library</title>
+  <link rel="stylesheet" href="css\\styles.css">
+  <script src="js\\script.js"></script>
+</head>
+<body>
+  <header>
+    <div class="user">Егор</div>
+    <div class="search-line">
+      <form action="" method="get">
+        <input name="s" placeholder="Искать книгу..." type="search">
+        <button type="submit">Поиск</button>
+      </form>
+    </div>
+    <article class="dropdown">
+      <button>Жанры</button>
+      <nav class="dropdown-options">
+        <script>print_genres()</script>
+      </nav>
+    </article>
+  </header>
+  <main>
+    <p class="welcome-phrase">Добро пожаловать в мою библиотеку</p>
+    <div class="white-bg">
+      <p class="list-title">Любимые книги автора</p>
+      <article class="cards">
+        <script>document.write(get_cards_html())</script>
+      </article>
+    </div>
+  </main>
+  <footer>
+    <div class="white-bg">
+      <p class="footer-title">Как связаться с автором:</p>
+      <aside>
+        <ul class="markers">
+          <li id="tg">@ed_kud</li>
+          <li id="in">@egor_kd</li>
+          <li id="gm">egor.ku.03@gmail.com</li>
+          <li id="vk">@egich2003</li>
+        </ul>
+      </aside>
+      <p class="footer-title">Просто немного информации о милых котиках 😸:</p>
+      <aside class="funny-place">
+        <div class="funny-item">
+          <pre>
+     _                        
+     \`*-.                    
+      )  _`-.                 
+     .  : `. .                
+     : _   '  \               
+     ; *` _.   `*-._          
+     `-.-'          `-.       
+       ;       `       `.     
+       :.       .        \    
+       . \  .   :   .-'   .   
+       '  `+.;  ;  '      :   
+       :  '  |    ;       ;-. 
+       ; '   : :`-:     _.`* ;
+   .*' /  .*' ; .*`- +'  `*' 
+    `*-*   `*-*  `*-*'
+            </pre>  
+        </div>
+        <div class="funny-item">
+          <pre><code>
+public class Main {
+    public static void main(String[] args) {
+        Cat cat = new Cat("Mew");
+        System.out.println(
+            "Cats say " + cat.sound()
+        );
+    }
+}
+
+record Cat(String sound) {
+}
+          </code></pre>
+        </div>
+      </aside>
+    </div>
+  </footer>
+</body>
+</html>
