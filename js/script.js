@@ -96,17 +96,17 @@ function get_all_cards_html() {
 function get_card_html(id, book) {
   return `\
     <article class="card">\
-      <section class="card-top">\
-        <div class="card-image">\
+      <section class="card__top">\
+        <div class="card__top__image">\
           <img src="${book.image}" alt=""/>\
         </div>\
       </section>\
-      <div class="card-bottom">\
+      <div class="card__bottom">\
         <div class="book-info">\
-          <section class="book-genre">${book.genre}</section>\
-          <section class="auther-mark">${book.mark}</section>\
+          <section class="book-info__genre">${book.genre}</section>\
+          <section class="book-info__author-mark">${book.mark}</section>\
         </div>\
-        <a href="book_description.html?id=${id}" class="book-name">${book.name}</a>\
+        <a href="book_description.html?id=${id}" class="card__bottom__book-name">${book.name}</a>\
       </div>\
     </article>`;
 }
@@ -119,12 +119,12 @@ function get_book_decription() {
   return `\
     <img src="${book.image}">\
     <section class="desc-container">\
-      <p class="desc-author">${book.author}</p>\
-      <p class="desc-name">${book.name}</p>\
-      <p class="desc-text">${book.description}</p>\
+      <p class="desc-container__desc-author">${book.author}</p>\
+      <p class="desc-container__desc-name">${book.name}</p>\
+      <p class="desc-container__desc-text">${book.description}</p>\
     </section>\
-    <div class="same-books-container">\
-      <p class="same-books-title">Похожая литература по мнению меня</p>\
+    <div class="same-books">\
+      <p class="same-books__title">Похожая литература по мнению меня</p>\
     </div>`;
 }
 
@@ -160,7 +160,3 @@ function get_cards_html_by_genre(genre) {
 
     return cardsHtml;
 }
-
-// function onHeaderLoad() {
-//   const header = document.querySelector('header');
-// }
