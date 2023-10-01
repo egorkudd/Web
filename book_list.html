@@ -29,59 +29,19 @@
     </article>
   </header>
   <main>
-    <p class="welcome-phrase">Добро пожаловать в мою библиотеку</p>
     <div class="white-bg">
-      <p class="list-title">Любимые книги автора</p>
+      <p class="list-title">Книги по запросу</p>
       <article class="cards">
-        <script>document.write(get_all_cards_html())</script>
+        <script>document.write(get_cards_html())</script>
       </article>
     </div>
   </main>
   <footer>
     <div class="white-bg">
       <p class="footer-title">Как связаться с автором:</p>
-      <aside>
         <ul class="markers">
           <script>document.write(get_contacts())</script>
         </ul>
-      </aside>
-      <p class="footer-title">Просто немного информации о милых котиках 😸:</p>
-      <aside class="funny-place">
-        <div class="funny-item">
-          <pre>
- _                        
- \`*-.                    
-  )  _`-.                 
- .  : `. .                
- : _   '  \               
- ; *` _.   `*-._          
- `-.-'          `-.       
-   ;       `       `.     
-   :.       .        \    
-   . \  .   :   .-'   .   
-   '  `+.;  ;  '      :   
-   :  '  |    ;       ;-. 
-   ; '   : :`-:     _.`* ;
-.*' /  .*' ; .*`- +'  `*' 
-`*-*   `*-*  `*-*'
-            </pre>  
-        </div>
-        <div class="funny-item">
-          <pre><code>
-public class Main {
-    public static void main(String[] args) {
-        Cat cat = new Cat("Mew");
-        System.out.println(
-            "Cats say " + cat.sound()
-        );
-    }
-}
-
-record Cat(String sound) {
-}
-          </code></pre>
-        </div>
-      </aside>
     </div>
   </footer>
 </body>
