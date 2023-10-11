@@ -22,67 +22,28 @@
       </form>
     </div>
     <article class="dropdown">
-      <button>Жанры</button>
-      <nav class="dropdown__options">
-        <script>document.write(get_genres())</script>
-      </nav>
+      <button id="genres-button">Жанры</button>
     </article>
   </header>
   <main>
-    <p class="welcome-phrase">Добро пожаловать в мою библиотеку</p>
+    <h1 class="welcome-phrase">Добро пожаловать в мою библиотеку</h1>
     <div class="white-bg">
-      <p class="list-title">Любимые книги автора</p>
-      <article class="cards">
+      <h2 class="list-title" id="cards-title">Любимые книги автора</h2>
+<!--       <article class="cards">
         <script>document.write(get_all_cards_html())</script>
-      </article>
+      </article> -->
     </div>
   </main>
   <footer>
-    <div class="white-bg">
-      <p class="footer-title">Как связаться с автором:</p>
-      <aside>
-        <ul class="markers">
-          <script>document.write(get_contacts())</script>
-        </ul>
-      </aside>
-      <p class="footer-title">Просто немного информации о милых котиках 😸:</p>
-      <aside class="funny-place">
-        <div class="funny-item">
-          <pre>
- _                        
- \`*-.                    
-  )  _`-.                 
- .  : `. .                
- : _   '  \               
- ; *` _.   `*-._          
- `-.-'          `-.       
-   ;       `       `.     
-   :.       .        \    
-   . \  .   :   .-'   .   
-   '  `+.;  ;  '      :   
-   :  '  |    ;       ;-. 
-   ; '   : :`-:     _.`* ;
-.*' /  .*' ; .*`- +'  `*' 
-`*-*   `*-*  `*-*'
-            </pre>  
-        </div>
-        <div class="funny-item">
-          <pre><code>
-public class Main {
-    public static void main(String[] args) {
-        Cat cat = new Cat("Mew");
-        System.out.println(
-            "Cats say " + cat.sound()
-        );
-    }
-}
-
-record Cat(String sound) {
-}
-          </code></pre>
-        </div>
-      </aside>
-    </div>
+    <aside class="white-bg">
+      <h4 class="footer-title" id="footer-head">Как связаться с автором:</h4>
+    </aside>
   </footer>
+
+  <script>
+    get_genres();
+    get_contacts();
+    get_all_cards_html();
+  </script>
 </body>
 </html>

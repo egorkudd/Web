@@ -72,7 +72,12 @@ function get_genres() {
      genresStr += `<a href="book_list.html?genre=${element}">${element}</a>`;
   }
 
-  return genresStr;
+  let genres_nav = document.createElement("nav");
+  genres_nav.className = "dropdown__options";
+  genres_nav.innerHTML = genresStr;
+
+  let button = document.getElementById("genres-button");
+  button.parentNode.insertBefore(genres_nav, genres_nav.nextSibling);
 }
 
 function get_contacts() {
@@ -81,7 +86,21 @@ function get_contacts() {
      contactsStr += `<li id="${id}">${contact}</li>`;
   }
 
-  return contactsStr;
+  let contacts_list = document.createElement("ul");
+  contacts_list.className = "markers";
+  contacts_list.innerHTML = contactsStr;
+
+  let footer_head = document.getElementById("footer-head");
+  footer_head.parentNode.insertBefore(contacts_list, contacts_list.nextSibling);
+}
+
+function get_cards_html(cardsHtml) {
+  let cards_list = document.createElement("article");
+  cards_list.className = "cards";
+  cards_list.innerHTML = cardsHtml;
+
+  let cards_title = document.getElementById("cards-title");
+  cards_title.parentNode.insertBefore(cards_list, cards_list.nextSibling);
 }
 
 function get_all_cards_html() {
@@ -90,7 +109,7 @@ function get_all_cards_html() {
     cardsHtml += get_card_html(id, book);
   }
 
-  return cardsHtml;
+  get_cards_html(cardsHtml);
 }
 
 function get_card_html(id, book) {
@@ -116,6 +135,22 @@ function get_book_decription() {
   const id = url.searchParams.get('id');
   const book = valuesCards[id];
 
+  let description = document.getElementById("description-card");
+  description.innerHTML = get_book_description_html(book);
+
+  // return `\
+  //   <img src="${book.image}">\
+  //   <section class="desc-container">\
+  //     <p class="desc-container__desc-author">${book.author}</p>\
+  //     <p class="desc-container__desc-name">${book.name}</p>\
+  //     <p class="desc-container__desc-text">${book.description}</p>\
+  //   </section>\
+  //   <div class="same-books">\
+  //     <p class="same-books__title">Похожая литература по мнению меня</p>\
+  //   </div>`;
+}
+
+function get_book_description_html(book) {
   return `\
     <img src="${book.image}">\
     <section class="desc-container">\
@@ -128,14 +163,14 @@ function get_book_decription() {
     </div>`;
 }
 
-function get_cards_html() {
+function get_cards_html_by_params() {
   const url = new URL(window.location);
 
   var name = url.searchParams.get('book_name');
-  if (name != null) return get_cards_html_by_name(name);
+  if (name != null) get_cards_html(get_cards_html_by_name(name));
 
   var genre = url.searchParams.get('genre');
-  if (genre != null) return get_cards_html_by_genre(genre);  
+  if (genre != null) get_cards_html(get_cards_html_by_genre(genre));  
 }
 
 function get_cards_html_by_name(name) {

@@ -6,7 +6,7 @@
   <meta name="keywords" content="HTML, CSS, JavaScript">
   <meta name="author" content="Egor Kudryashov">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Library</title>
+  <title>Book's List</title>
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/script.js"></script>
 </head>
@@ -22,27 +22,23 @@
       </form>
     </div>
     <article class="dropdown">
-      <button>Жанры</button>
-      <nav class="dropdown__options">
-        <script>document.write(get_genres())</script>
-      </nav>
+      <button id="genres-button">Жанры</button>
     </article>
   </header>
   <main>
     <div class="white-bg">
-      <p class="list-title">Книги по запросу</p>
-      <article class="cards">
-        <script>document.write(get_cards_html())</script>
-      </article>
+      <h2 class="list-title" id="cards-title">Книги по запросу</h2>
     </div>
   </main>
   <footer>
-    <div class="white-bg">
-      <p class="footer-title">Как связаться с автором:</p>
-        <ul class="markers">
-          <script>document.write(get_contacts())</script>
-        </ul>
-    </div>
+    <aside class="white-bg">
+      <h4 class="footer-title" id="footer-head">Как связаться с автором:</h4>
+    </aside>
   </footer>
+  <script>
+    get_genres();
+    get_contacts();
+    get_cards_html_by_params();
+  </script>
 </body>
 </html>
