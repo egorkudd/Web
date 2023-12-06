@@ -64,12 +64,32 @@ const valuesCards = {
   },
 }
 
-const genres = ['Фэнтези', 'Фантастика', 'Российская Классика', 'Зарубежная классика', 'Бизнес-литература', 'Детективы']
+const genres = {
+  'fantasy': 'Фэнтези',
+  'fantastic': 'Фантастика',
+  'russian-classics': 'Российская Классика',
+  'foreign-classics': 'Зарубежная классика',
+  'business-literature': 'Бизнес-литература',
+  'detectives': 'Детективы'
+}
+
+function active_menu() {
+    const url = new URL(window.location);
+    var genre_id = url.searchParams.get('genre');
+    if (genre_id != null) {
+        document.querySelectorAll(".dropdown__options a").forEach((el) => {
+            if (genre_id == el.getAttribute("id")) {
+                el.classList.add("active");
+            }
+
+        });
+    }
+}
 
 function get_genres() {
   var genresStr = '';
-  for (const element of Object.values(genres)) {
-     genresStr += `<a href="book_list.html?genre=${element}">${element}</a>`;
+  for (const [id, genre] of Object.entries(genres)) {
+     genresStr += `<a id=${id} href="book_list.html?genre=${id}">${genre}</a>`;
   }
 
   let genres_nav = document.createElement("nav");
@@ -137,17 +157,6 @@ function get_book_decription() {
 
   let description = document.getElementById("description-card");
   description.innerHTML = get_book_description_html(book);
-
-  // return `\
-  //   <img src="${book.image}">\
-  //   <section class="desc-container">\
-  //     <p class="desc-container__desc-author">${book.author}</p>\
-  //     <p class="desc-container__desc-name">${book.name}</p>\
-  //     <p class="desc-container__desc-text">${book.description}</p>\
-  //   </section>\
-  //   <div class="same-books">\
-  //     <p class="same-books__title">Похожая литература по мнению меня</p>\
-  //   </div>`;
 }
 
 function get_book_description_html(book) {
@@ -195,3 +204,17 @@ function get_cards_html_by_genre(genre) {
 
     return cardsHtml;
 }
+
+const startTime = new Date().getTime();
+window.addEventListener('load', function() {
+    const endTime = new Date().getTime();
+
+    const loadTime = (endTime - startTime) / 1000;
+    let load_time = document.createElement("p");
+    load_time.className = "time-place";
+    load_time.innerHTML = 'Page loade time is ' + loadTime + " seconds";
+
+    let footer_head = document.getElementById("footer-head")
+    footer_head.parentNode.insertBefore(load_time, load_time.nextSibling);
+});
+

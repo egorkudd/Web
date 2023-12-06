@@ -103,6 +103,10 @@ button:hover{
   border-radius:5px;
 }
 
+.dropdown__options a.active {
+    font-weight: bold;
+}
+
 /*==================== Body ===========================*/
 
 body {
@@ -341,13 +345,9 @@ body {
   list-style-image: url(images/gm.png);
 }
 
-.funny-place {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-}
-
-.funny-item {
-  padding: 15px;
+.time-place {
+  padding-right: 10px;
+  padding-bottom: 10px;
+  text-align: right;
 }
 
