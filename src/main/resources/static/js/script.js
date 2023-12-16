@@ -53,7 +53,6 @@ function get_cards_html(cardsHtml) {
 function get_all_cards_html() {
     let cardsHtml = '';
     const book_cards = get_data('../data/cards.json');
-    console.log(book_cards)
     for (let i = 0; i < book_cards.length; i++) {
         cardsHtml += get_card_html(book_cards[i]);
     }
@@ -90,16 +89,16 @@ function get_book_description() {
 
 function get_book_description_html(book) {
     return `\
-    <img src="${book.imageSource}">\
-    <section class="desc-container">\
-      <p class="desc-container__desc-author">${book.author}</p>\
-      <p class="desc-container__desc-name">${book.name}</p>\
-      <p class="desc-container__desc-text">${book.description}</p>\
-    </section>\
-    <div class="same-books">\
-      <h6 class="same-books__title">Похожая литература по мнению меня</h6>\
-      ${get_same_book_list(book)}\
-    </div>`;
+        <img src="${book.imageSource}">\
+        <section class="desc-container">\
+            <p class="desc-container__desc-author">${book.author}</p>\
+              <p class="desc-container__desc-name">${book.name}</p>\
+              <p class="desc-container__desc-text">${book.description}</p>\
+        </section>\
+        <div class="same-books">\
+              <h6 class="same-books__title">Похожая литература по мнению меня</h6>\
+              ${get_same_book_list(book)}\
+        </div>`;
 }
 
 function get_same_book_list(book) {
@@ -119,7 +118,6 @@ function get_cards_html_by_params() {
     if (name != null) get_cards_html(get_cards_html_by_name(name));
 
     const genre = url.searchParams.get('genre');
-    console.log(genre)
     if (genre != null) get_cards_html(get_cards_html_by_genre(genre));
 }
 
@@ -150,6 +148,59 @@ function get_cards_html_by_genre(genre_id) {
 
     return cardsHtml;
 }
+
+function get_cost_table() {
+    let cardsHtml = get_table_title_row();
+    const book_cards = get_data('../data/cards.json');
+    for (let i = 0; i < book_cards.length; i++) {
+        cardsHtml += get_table_row(book_cards[i].name, i);
+    }
+
+    get_table_html(cardsHtml);
+}
+
+function get_table_title_row() {
+    return `\
+    <div class="grid-row title-grid-row">
+        <div class="grid-item">Название кгини</div>
+        <div class="grid-item">Буквоед</div>
+        <div class="grid-item">Лабиринт</div>
+        <div class="grid-item">Читай Город</div>
+        <div class="grid-item">Book24</div>
+    </div>`;
+}
+
+function get_table_row(book_name, row_number) {
+    if (row_number % 2 === 0) {
+        return `\
+            <div class="grid-row">
+                <div class="grid-item book-grid-item">${book_name}</div>
+                <div class="grid-item">500 р</div>
+                <div class="grid-item">500 р</div>
+                <div class="grid-item">500 р</div>
+                <div class="grid-item">500 р</div>
+            </div>`
+    } else {
+        return `\
+            <div class="grid-row even-grid-row">
+                <div class="grid-item book-grid-item">${book_name}</div>
+                <div class="grid-item">600 р</div>
+                <div class="grid-item">600 р</div>
+                <div class="grid-item">600 р</div>
+                <div class="grid-item">600 р</div>
+            </div>`
+    }
+}
+
+function get_table_html(table_html) {
+    let table = document.createElement("div");
+    table.className = "grid-container";
+    table.innerHTML = table_html;
+
+    let table_title = document.getElementById("table-title");
+    table_title.parentNode.insertBefore(table, table.nextSibling);
+}
+
 
 const startTime = new Date().getTime();
 window.addEventListener('load', function () {

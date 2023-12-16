@@ -33,7 +33,7 @@ header {
 .user {
     position: absolute;
     top: 1%;
-    left: 20%;
+    left: 23%;
     background-color: #eee;
     border-radius: 5px;
     padding: 15px 20px 15px 20px;
@@ -46,6 +46,25 @@ header {
 .user::before {
     content: "Пользователь: ";
     font-weight: normal;
+}
+
+.cost-button {
+    position: absolute;
+    top: 1%;
+    left: 15%;
+    background-color: #eee;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 20px 15px 20px;
+    font-size: 100%;
+    cursor: pointer;
+}
+
+.cost-button:hover {
+    background-color: #ccc;
 }
 
 .search-line {
@@ -259,6 +278,7 @@ body {
 
 .white-bg {
     width: 89%;
+    min-width: 600px;
     background-color: white;
     margin: 0 auto;
     border-radius: 5px;
@@ -279,7 +299,6 @@ body {
         height: 365px;
     }
 }
-
 
 .desc-container {
     display: flex;
@@ -353,6 +372,43 @@ body {
     .same-books {
         display: none;
     }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px repeat(4, minmax(100px, 1fr));
+    background-color: #fff;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    border: solid;
+}
+
+.grid-row {
+    grid-column: 1 / -1;
+    display: grid;
+    background-color: #fff;
+    grid-template-columns: 200px repeat(4, minmax(100px, 1fr));
+}
+
+.title-grid-row {
+    background-color: #aaa;
+    font-weight: bold;
+}
+
+.even-grid-row {
+    background-color: #ddd;
+}
+
+.grid-item {
+    padding: 10px;
+    border: solid;
+}
+
+.book-grid-item {
+    background-color: #aaa;
+    font-weight: bold;
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
 }
 
 /*============================== Footer ========================*/
